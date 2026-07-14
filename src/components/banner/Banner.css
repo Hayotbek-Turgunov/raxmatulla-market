@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+.banner-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #050505;
+  font-family: 'Outfit', sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+  padding: 6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background Animated Glows */
+.banner-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.5;
+  animation: float 20s infinite ease-in-out alternate;
+}
+
+.circle-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #4f46e5, rgba(79, 70, 229, 0));
+  top: -200px;
+  left: -200px;
+}
+
+.circle-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #ec4899, rgba(236, 72, 153, 0));
+  bottom: -100px;
+  right: -100px;
+  animation-delay: -5s;
+}
+
+.circle-3 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, #06b6d4, rgba(6, 182, 212, 0));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -10s;
+  opacity: 0.3;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 50px) scale(1.1); }
+  100% { transform: translate(-30px, -20px) scale(0.9); }
+}
+
+.banner-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Header */
+.banner-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.banner-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.banner-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: #a3a3a3;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Grid */
+.phone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 1rem;
+}
+
+/* Card Design */
+.phone-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  padding: 1px; /* for gradient border */
+  overflow: visible;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.card-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(30px);
+}
+
+.phone-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(79, 70, 229, 0.3);
+}
+
+.phone-card:hover .card-glow {
+  opacity: 1;
+}
+
+.card-badge {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(255, 8, 68, 0.3);
+  transform: rotate(5deg);
+}
+
+/* Image */
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: 23px 23px 0 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 50%);
+}
+
+.phone-card:hover .card-image {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+/* Content */
+.card-content {
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(10,10,10,0.95) 100%);
+  border-radius: 0 0 23px 23px;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00f2fe;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.phone-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+}
+
+/* Pricing */
+.price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.current-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.original-price {
+  font-size: 1.1rem;
+  color: #737373;
+  text-decoration: line-through;
+}
+
+/* Features */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+  flex-grow: 1;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #d4d4d4;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* Button */
+.buy-button {
+  width: 100%;
+  padding: 1.1rem;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  margin-top: auto;
+}
+
+.buy-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.phone-card:hover .buy-button {
+  background: white;
+  color: #000000;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+.phone-card:hover .buy-button::before {
+  left: 100%;
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.phone-card:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-section {
+    padding: 3rem 1rem;
+  }
+  
+  .banner-title {
+    font-size: 2.8rem;
+  }
+  
+  .card-content {
+    padding: 1.5rem;
+  }
+}
