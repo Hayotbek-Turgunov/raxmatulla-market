@@ -1,5 +1,9 @@
 const Parizoda = () => {
-  return <div>Parizoda</div>;
+  return (
+    <div>
+      <h2>Parizoda</h2>
+    </div>
+  );
 };
 
 export default Parizoda;
