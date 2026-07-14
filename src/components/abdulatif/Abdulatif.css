@@ -1,0 +1,108 @@
+.counter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.counter-value-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(129, 140, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 20px rgba(129, 140, 248, 0.1),
+              0 0 30px rgba(129, 140, 248, 0.05);
+  margin: 10px 0;
+  transition: transform 0.1s ease, border-color 0.3s ease;
+}
+
+.counter-value-container.updating {
+  transform: scale(1.08);
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: inset 0 0 30px rgba(167, 139, 250, 0.25),
+              0 0 45px rgba(167, 139, 250, 0.2);
+}
+
+.counter-number {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  transition: color 0.3s ease;
+}
+
+.counter-number.target-met {
+  background: linear-gradient(135deg, #34d399, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 25px rgba(52, 211, 153, 0.25);
+}
+
+.counter-buttons {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.counter-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 16px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-decrement {
+  background: linear-gradient(135deg, #f43f5e, #be123c);
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+}
+
+.btn-increment {
+  background: linear-gradient(135deg, #10b981, #047857);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.counter-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+.counter-btn:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+.target-badge {
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: #34d399;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  animation: pulseBadge 2s infinite alternate;
+}
+
+@keyframes pulseBadge {
+  0% {
+    box-shadow: 0 0 5px rgba(52, 211, 153, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.25);
+  }
+}
