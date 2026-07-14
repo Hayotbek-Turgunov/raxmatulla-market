@@ -1,5 +1,7 @@
 const Abrorbek = () => {
-  return <div>Abrorbek</div>;
+  return <div>
+    <h1>hello world by Abrorbek</h1>
+  </div>;
 };
 
 export default Abrorbek;
