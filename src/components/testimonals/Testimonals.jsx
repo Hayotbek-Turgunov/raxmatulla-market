@@ -1,5 +1,11 @@
+import "./Testimonals.css";
+
 const Testimonals = () => {
-  return <div>Testimonals</div>;
+  return (
+    <div>
+      <h2 className="name">Juramirzayev</h2>
+    </div>
+  );
 };
 
 export default Testimonals;
