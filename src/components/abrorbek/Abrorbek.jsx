@@ -5,7 +5,7 @@ const [click,setClick] = useState(false)
   
   return <div>
        <button onClick={() => setClick(!Click)}>
-        Toggle Text
+        Click
       </button>
 
       {click && <h1>Abrorbek</h1>}
