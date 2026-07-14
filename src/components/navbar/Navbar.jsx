@@ -1,5 +1,10 @@
+import "./Navbar.css"
 const Navbar = () => {
-  return <div>Navbar</div>;
+  return (
+    <div>
+      <h1>Orifjon</h1>
+    </div>
+  );
 };
 
 export default Navbar;
